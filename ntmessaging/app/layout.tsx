@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import { BreadcrumbCollapsed } from "@/components/breadcrumbBar";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -29,8 +30,12 @@ export default function RootLayout({
       <body>
         <SidebarProvider>
           <AppSidebar />
+
           <main>
-            <SidebarTrigger />
+            <div className="flex flex-row justify-start items-center gap-4 p-4  border-b border-background">
+              <SidebarTrigger />
+              <BreadcrumbCollapsed />
+            </div>
             {children}
           </main>
         </SidebarProvider>
