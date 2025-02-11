@@ -7,6 +7,7 @@ import {
   Home,
   House,
   Inbox,
+  LogOut,
   NotebookTabs,
   Search,
   Send,
@@ -111,8 +112,8 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton>
-              <NotebookTabs />
-              <h1>ออกจากระบบ</h1>
+              <LogOut className="text-red-600"/>
+              <h1 className="text-lg text-red-600">ออกจากระบบ</h1>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
