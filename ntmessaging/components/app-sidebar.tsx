@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
 
@@ -8,10 +8,12 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import Image from "next/image";
 
 // Menu items.
 const items = [
@@ -46,6 +48,14 @@ export function AppSidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   return (
     <Sidebar collapsible="icon" inert={isCollapsed ? true : undefined}>
+      <SidebarHeader>
+        <Image
+          src={"/nt_messaging_logo.jpg"}
+          alt="NT Messaging"
+          width={200}
+          height={200}
+        />
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
