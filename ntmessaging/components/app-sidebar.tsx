@@ -112,7 +112,7 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton>
-              <LogOut className="text-red-600"/>
+              <LogOut className="text-red-600" />
               <h1 className="text-lg text-red-600">ออกจากระบบ</h1>
             </SidebarMenuButton>
           </SidebarMenuItem>
