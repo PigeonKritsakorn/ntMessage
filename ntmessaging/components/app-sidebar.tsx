@@ -21,6 +21,7 @@ import {
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -30,34 +31,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
-
-const items = [
-  {
-    title: "Home",
-    url: "/",
-    icon: Home,
-  },
-  {
-    title: "ส่ง​ SMS",
-    url: "/upload",
-    icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
-  },
-];
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export function AppSidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -73,29 +47,12 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          {/* <SidebarGroupLabel>Application</SidebarGroupLabel> */}
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-        <SidebarGroup>
           <SidebarMenu>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <House />
-                  <h1>Home</h1>
+                  <h1 className="text-lg">Home</h1>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -107,7 +64,7 @@ export function AppSidebar() {
                     {/* <FontAwesomeIcon icon="fa-regular fa-paper-plane" /> */}
                     <Send />
 
-                    <h1>ส่ง SMS</h1>
+                    <h1 className="text-lg">ส่ง SMS</h1>
                   </SidebarMenuButton>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
@@ -131,52 +88,35 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <NotebookTabs />
-                  <h1>สมุดโทรศัพท์</h1>
+                  <h1 className="text-lg">สมุดโทรศัพท์</h1>
                 </SidebarMenuButton>
                 <SidebarMenuButton>
                   <FileSearch />
-                  <h1>รายงานการใช้งาน</h1>
+                  <h1 className="text-lg">รายงานการใช้งาน</h1>
                 </SidebarMenuButton>
                 <SidebarMenuButton>
                   <Cog />
-                  <h1>ตั้งค่าบัญชีผู้ใช้</h1>
-                </SidebarMenuButton>
-                <SidebarMenuButton>
-                  <NotebookTabs />
-                  <h1>ออกจากระบบ</h1>
+                  <h1 className="text-lg">ตั้งค่าบัญชีผู้ใช้</h1>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarMenu>
         </SidebarGroup>
-        {/* <SidebarGroup>
-          <SidebarMenu>
-            <Collapsible defaultOpen className="group/collapsible">
-              <SidebarMenuItem>
-                <CollapsibleTrigger asChild>
-                  <SidebarMenuButton>
-                    <h1>Button</h1>
-                  </SidebarMenuButton>
-                </CollapsibleTrigger>
-                <CollapsibleContent>
-                  <SidebarMenu>
-                    {items.map((item) => (
-                      <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild>
-                          <a href={item.url}>
-                            <item.icon />
-                            <span>{item.title}</span>
-                          </a>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))}
-                  </SidebarMenu>
-                </CollapsibleContent>
-              </SidebarMenuItem>
-            </Collapsible>
-          </SidebarMenu>
-        </SidebarGroup> */}
       </SidebarContent>
+      <SidebarFooter>
+        <Avatar>
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton>
+              <NotebookTabs />
+              <h1>ออกจากระบบ</h1>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   );
 }
