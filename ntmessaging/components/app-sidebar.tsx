@@ -1,6 +1,17 @@
 "use client";
 import { useState } from "react";
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import {
+  Calendar,
+  Cog,
+  FileSearch,
+  Home,
+  House,
+  Inbox,
+  NotebookTabs,
+  Search,
+  Send,
+  Settings,
+} from "lucide-react";
 import {
   Collapsible,
   CollapsibleContent,
@@ -20,7 +31,6 @@ import {
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 
-// Menu items.
 const items = [
   {
     title: "Home",
@@ -81,6 +91,66 @@ export function AppSidebar() {
         </SidebarGroup>
         <SidebarGroup>
           <SidebarMenu>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton>
+                  <House />
+                  <h1>Home</h1>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+            <Collapsible className="group/collapsible">
+              <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton>
+                    {/* <FontAwesomeIcon icon={faPaperPlane} /> */}
+                    {/* <FontAwesomeIcon icon="fa-regular fa-paper-plane" /> */}
+                    <Send />
+
+                    <h1>ส่ง SMS</h1>
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <SidebarMenu>
+                    <SidebarMenuItem>
+                      <SidebarMenuButton>
+                        <h1>SMS</h1>
+                      </SidebarMenuButton>
+                      <SidebarMenuButton>
+                        <h1>SMS จากไฟล์</h1>
+                      </SidebarMenuButton>
+                      <SidebarMenuButton>
+                        <h1>SMS แนบลิ้งก์</h1>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  </SidebarMenu>
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </Collapsible>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton>
+                  <NotebookTabs />
+                  <h1>สมุดโทรศัพท์</h1>
+                </SidebarMenuButton>
+                <SidebarMenuButton>
+                  <FileSearch />
+                  <h1>รายงานการใช้งาน</h1>
+                </SidebarMenuButton>
+                <SidebarMenuButton>
+                  <Cog />
+                  <h1>ตั้งค่าบัญชีผู้ใช้</h1>
+                </SidebarMenuButton>
+                <SidebarMenuButton>
+                  <NotebookTabs />
+                  <h1>ออกจากระบบ</h1>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarMenu>
+        </SidebarGroup>
+        {/* <SidebarGroup>
+          <SidebarMenu>
             <Collapsible defaultOpen className="group/collapsible">
               <SidebarMenuItem>
                 <CollapsibleTrigger asChild>
@@ -105,7 +175,7 @@ export function AppSidebar() {
               </SidebarMenuItem>
             </Collapsible>
           </SidebarMenu>
-        </SidebarGroup>
+        </SidebarGroup> */}
       </SidebarContent>
     </Sidebar>
   );
