@@ -7,7 +7,7 @@ function Home() {
     <div>
       <AppSidebar />
       <div className="flex flex-col justify-center items-center w-screen">
-        <h1>Hello</h1>
+        <h1>สวัสดี</h1>
         <PaginationDemo />
       </div>
     </div>
