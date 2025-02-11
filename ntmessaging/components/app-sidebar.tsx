@@ -2,6 +2,7 @@
 import { useState } from "react";
 import {
   Calendar,
+  ChevronDown,
   Cog,
   FileSearch,
   Home,
@@ -60,14 +61,17 @@ export function AppSidebar() {
             <Collapsible className="group/collapsible">
               <SidebarMenuItem>
                 <CollapsibleTrigger asChild>
-                  <SidebarMenuButton>
-                    {/* <FontAwesomeIcon icon={faPaperPlane} /> */}
-                    {/* <FontAwesomeIcon icon="fa-regular fa-paper-plane" /> */}
-                    <Send />
-
-                    <h1 className="text-lg">ส่ง SMS</h1>
+                  <SidebarMenuButton className="flex items-center justify-between w-full">
+                    <div className="flex items-center space-x-2">
+                      {/* <FontAwesomeIcon icon={faPaperPlane} /> */}
+                      {/* <FontAwesomeIcon icon="fa-regular fa-paper-plane" /> */}
+                      <Send size={15}/>
+                      <h1 className="text-lg">ส่ง SMS</h1>
+                    </div>
+                    <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
                   </SidebarMenuButton>
                 </CollapsibleTrigger>
+
                 <CollapsibleContent>
                   <SidebarMenu>
                     <SidebarMenuItem>
@@ -112,7 +116,7 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton>
-              <LogOut className="text-red-600"/>
+              <LogOut className="text-red-600" />
               <h1 className="text-lg text-red-600">ออกจากระบบ</h1>
             </SidebarMenuButton>
           </SidebarMenuItem>
