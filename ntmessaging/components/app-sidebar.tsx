@@ -1,6 +1,11 @@
 "use client";
 import { useState } from "react";
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 import {
   Sidebar,
@@ -23,7 +28,7 @@ const items = [
     icon: Home,
   },
   {
-    title: "Upload",
+    title: "ส่ง​ SMS",
     url: "/upload",
     icon: Inbox,
   },
@@ -58,7 +63,7 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          {/* <SidebarGroupLabel>Application</SidebarGroupLabel> */}
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -73,6 +78,33 @@ export function AppSidebar() {
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarMenu>
+            <Collapsible defaultOpen className="group/collapsible">
+              <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton>
+                    <h1>Button</h1>
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <SidebarMenu>
+                    {items.map((item) => (
+                      <SidebarMenuItem key={item.title}>
+                        <SidebarMenuButton asChild>
+                          <a href={item.url}>
+                            <item.icon />
+                            <span>{item.title}</span>
+                          </a>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    ))}
+                  </SidebarMenu>
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </Collapsible>
+          </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
