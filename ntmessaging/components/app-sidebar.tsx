@@ -5,14 +5,17 @@ import {
   ChevronDown,
   Cog,
   FileSearch,
+  FileUp,
   Home,
   House,
   Inbox,
+  Link,
   LogOut,
   NotebookTabs,
   Search,
   Send,
   Settings,
+  Signal,
 } from "lucide-react";
 import {
   Collapsible,
@@ -65,7 +68,7 @@ export function AppSidebar() {
                     <div className="flex items-center space-x-2">
                       {/* <FontAwesomeIcon icon={faPaperPlane} /> */}
                       {/* <FontAwesomeIcon icon="fa-regular fa-paper-plane" /> */}
-                      <Send size={15}/>
+                      <Send size={15} />
                       <h1 className="text-lg">ส่ง SMS</h1>
                     </div>
                     <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
@@ -76,12 +79,15 @@ export function AppSidebar() {
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <SidebarMenuButton>
+                        <Signal />
                         <h1>SMS</h1>
                       </SidebarMenuButton>
                       <SidebarMenuButton>
+                        <FileUp />
                         <h1>SMS จากไฟล์</h1>
                       </SidebarMenuButton>
                       <SidebarMenuButton>
+                        <Link />
                         <h1>SMS แนบลิ้งก์</h1>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
