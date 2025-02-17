@@ -41,6 +41,12 @@ import Link from "next/link";
 
 export function AppSidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
+
+  function logout() {
+    localStorage.removeItem("token");
+    console.log("logout");
+  }
+
   return (
     <Sidebar collapsible="icon" inert={isCollapsed ? true : undefined}>
       <SidebarHeader>
@@ -125,8 +131,10 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton>
-              <LogOut className="text-red-600" />
-              <h1 className="text-lg text-red-600">ออกจากระบบ</h1>
+              <div onClick={logout} className="flex items-center space-x-2">
+                <LogOut className="text-red-600" />
+                <h1 className="text-lg text-red-600">ออกจากระบบ</h1>
+              </div>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
