@@ -38,12 +38,15 @@ import {
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export function AppSidebar() {
+  const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   function logout() {
     localStorage.removeItem("token");
+    router.push("/login");
     console.log("logout");
   }
 
