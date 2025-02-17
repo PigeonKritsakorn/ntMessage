@@ -9,6 +9,7 @@ import {
   Home,
   House,
   Inbox,
+  Link2,
   LogOut,
   NotebookTabs,
   Search,
@@ -57,7 +58,9 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <House />
-                  <Link href={`/`} className="text-lg">Home</Link>
+                  <Link href={`/`} className="text-lg">
+                    Home
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -84,10 +87,11 @@ export function AppSidebar() {
                       </SidebarMenuButton>
                       <SidebarMenuButton>
                         <FileUp />
-                        <h1>SMS จากไฟล์</h1>
+                        <Link href={`/sms/file`}>SMS จากไฟล์</Link>
                       </SidebarMenuButton>
                       <SidebarMenuButton>
-                        <h1>SMS แนบลิ้งก์</h1>
+                        <Link2 />
+                        <Link href={`/sms/link`}>SMS เเนบลิ้งค์</Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                   </SidebarMenu>
