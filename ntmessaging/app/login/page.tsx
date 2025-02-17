@@ -17,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
@@ -24,10 +25,10 @@ const formSchema = z.object({
 });
 
 function Page() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,12 +37,19 @@ function Page() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const response = axios.post("http://localhost:4000/user-login", values);
-      console.log("Login successful", response);
+      const response = await axios.post(
+        "http://localhost:4000/user-login",
+        values
+      );
+      console.log("Login successful", response.status);
+      if (response.status === 200) {
+        localStorage.setItem("token", response.data.token);
+        router.push("/");
+      }
     } catch (error) {
-      setError(error);
+      setError((error as Error).message);
     }
     console.log(values);
   }
