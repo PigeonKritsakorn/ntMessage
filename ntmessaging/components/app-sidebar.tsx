@@ -9,7 +9,7 @@ import {
   Home,
   House,
   Inbox,
-  Link,
+  Link2,
   LogOut,
   NotebookTabs,
   Search,
@@ -37,6 +37,7 @@ import {
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Link from "next/link";
 
 export function AppSidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -57,7 +58,9 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <House />
-                  <h1 className="text-lg">Home</h1>
+                  <Link href={`/`} className="text-lg">
+                    Home
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -80,15 +83,15 @@ export function AppSidebar() {
                     <SidebarMenuItem>
                       <SidebarMenuButton>
                         <Signal />
-                        <h1>SMS</h1>
+                        <Link href={`/sms`}>SMS</Link>
                       </SidebarMenuButton>
                       <SidebarMenuButton>
                         <FileUp />
-                        <h1>SMS จากไฟล์</h1>
+                        <Link href={`/sms/file`}>SMS จากไฟล์</Link>
                       </SidebarMenuButton>
                       <SidebarMenuButton>
-                        <Link />
-                        <h1>SMS แนบลิ้งก์</h1>
+                        <Link2 />
+                        <Link href={`/sms/link`}>SMS เเนบลิ้งค์</Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                   </SidebarMenu>
